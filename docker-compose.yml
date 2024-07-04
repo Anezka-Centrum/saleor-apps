@@ -1,0 +1,14 @@
+services:
+  typesense:
+    container_name: typesense
+    build:
+      context: .
+      dockerfile: ./apps/typesense-app/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - SECRET_KEY=xyz
+      - APP_IFRAME_BASE_URL=http://localhost:3000
+      - APP_API_BASE_URL=http://host.docker.internal:3000
+
